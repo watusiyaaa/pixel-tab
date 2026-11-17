@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico?v=2" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>pt://newtab</title>
+  </head>
+  <body>
+    <!-- SVG icon library -->
+    <svg
+      class="icon-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="icon-fmhy" viewBox="0 0 16 16">
+        <path d="M0 0h16v16H0z" fill="none" />
+        <path
+          fill="currentColor"
+          d="M3 2.803a1 1 0 0 1 1.5-.865l9 5.195a1 1 0 0 1 0 1.733l-9 5.196a1 1 0 0 1-1.5-.866z"
+        />
+      </symbol>
+      <symbol id="icon-canvas" viewBox="0 0 512 512">
+        <path d="M0 0h512v512H0z" fill="none" />
+        <path
+          fill="#fff"
+          d="M74.4 255.3c0-37.4-27.8-68.9-64.9-73.4C-3 230.1-3 280.6 9.5 328.8c37.1-4.6 65-36.1 64.9-73.5m43-23.1c-12.8 0-23.2 10.4-23.2 23.2s10.4 23.2 23.2 23.2s23.2-10.4 23.2-23.2v-.1c0-12.8-10.4-23.1-23.2-23.1m320.2 23.1c0 37.4 27.8 68.9 64.9 73.4c12.5-48.2 12.5-98.7 0-146.9c-37.1 4.7-65 36.2-64.9 73.5m-43-23.1c-12.8 0-23.2 10.4-23.2 23.2s10.4 23.2 23.2 23.2s23.2-10.4 23.2-23.2v-.1c0-12.8-10.4-23.1-23.2-23.1M255.5 437.6c-37.4 0-68.9 28-73.4 65.1c48.2 12.4 98.7 12.4 146.9 0c-4.6-37.1-36.1-64.9-73.4-64.9m-.1-66.4c-12.8 0-23.2 10.4-23.2 23.2s10.4 23.2 23.2 23.2s23.2-10.4 23.2-23.2s-10.3-23.2-23.1-23.2zm0-297.2c37.3 0 68.8-27.8 73.4-64.9c-48.2-12.4-98.7-12.4-146.9 0c4.7 37.1 36.2 64.9 73.5 64.9m0 19.8c-12.8 0-23.2 10.4-23.2 23.2s10.4 23.2 23.2 23.2s23.2-10.4 23.2-23.2S268.4 94 255.6 94zm128.8 290.1c-26.3 26.4-28.9 68.3-6 97.7c42.7-25.3 78.4-61.1 103.5-103.9c-29.4-22.7-71.2-20.1-97.5 6.2m-46.9-46.9c-9 9.1-9 23.7.1 32.8c9.1 9 23.7 9 32.8-.1c9-9 9-23.6 0-32.7s-23.6-9.1-32.7-.1c-.1 0-.2 0-.2.1M127.3 127.1c26.3-26.4 28.9-68.2 6-97.7c-42.8 25.3-78.5 61-103.7 103.7c29.4 23 71.3 20.4 97.7-6m14.1 14.1c-9.1 9.1-9.1 23.8 0 32.8c9.1 9.1 23.8 9.1 32.8 0c9.1-9 9.1-23.7 0-32.8c-9-9-23.7-9-32.8 0m242.9-14.3c26.4 26.3 68.2 28.9 97.7 6c-25.3-42.8-61.1-78.5-104-103.8c-22.9 29.6-20.2 71.5 6.3 97.8M370 173.7c9.1-9.1 9.1-23.8 0-32.8c-9.1-9.1-23.8-9.1-32.8 0s-9.1 23.8 0 32.8s23.7 9 32.8 0m-242.8 210c-26.4-26.3-68.3-28.9-97.7-6c25.3 42.8 61 78.5 103.8 103.8c22.8-29.6 20.2-71.4-6.1-97.8m14.2-46.8c-9 9.1-9 23.7.1 32.8c9.1 9 23.7 9 32.8-.1c9-9 9-23.6 0-32.7c-9.1-9.1-23.8-9.1-32.9 0c.1-.1 0 0 0 0"
+        />
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 12 12">
+        <path d="M0 0h12v12H0z" fill="none" />
+        <path
+          fill="currentColor"
+          d="M5 12h2V7h2V5H7V3h2V1H6v1H5v3H3v2h2Zm0 0"
+        />
+      </symbol>
+      <symbol id="icon-twitter" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M15.022 3.343c.508-.087 1.077-.116 1.613-.025a4.85 4.85 0 0 1 2.54 1.273c.456.01.905-.08 1.302-.208a5.4 5.4 0 0 0 1.098-.501l.009-.006a.75.75 0 0 1 1.042 1.037c-.207.315-.496.877-.819 1.507l-.155.301c-.185.36-.375.724-.552 1.036c-.111.196-.23.395-.35.567v.274A12.34 12.34 0 0 1 8.287 21.03a12.3 12.3 0 0 1-6.694-1.97a.75.75 0 0 1 .5-1.375q.45.055.905.055a7.5 7.5 0 0 0 3.128-.696a4.86 4.86 0 0 1-2.61-2.923a.75.75 0 0 1 .147-.722l.01-.01A4.85 4.85 0 0 1 2.05 9.793V9.74a.75.75 0 0 1 .553-.724A4.84 4.84 0 0 1 2.09 6.84a4.9 4.9 0 0 1 .65-2.442a.75.75 0 0 1 1.232-.1a10.9 10.9 0 0 0 7.006 3.93a4.85 4.85 0 0 1 2.562-4.406c.402-.214.934-.385 1.482-.479m-11.28 7.548a3.35 3.35 0 0 0 2.503 2.164a.75.75 0 0 1 .072 1.453q-.409.124-.834.173a3.36 3.36 0 0 0 2.59 1.3a.75.75 0 0 1 .45 1.339a9 9 0 0 1-3.548 1.695a10.8 10.8 0 0 0 3.313.515h.009A10.84 10.84 0 0 0 19.25 8.607v-.535a.75.75 0 0 1 .186-.495c.07-.079.19-.261.36-.56c.16-.282.338-.622.523-.981l.033-.066a5 5 0 0 1-1.593.097a.75.75 0 0 1-.47-.237a3.35 3.35 0 0 0-1.904-1.032a3.4 3.4 0 0 0-1.11.025a3.6 3.6 0 0 0-1.028.323a3.35 3.35 0 0 0-1.678 3.74a.75.75 0 0 1-.767.925a12.4 12.4 0 0 1-8.149-3.627a3.4 3.4 0 0 0-.063.657v.002a3.34 3.34 0 0 0 1.486 2.785A.75.75 0 0 1 4.64 11a5 5 0 0 1-.897-.11"
+          clip-rule="evenodd"
+        />
+      </symbol>
+      <symbol id="icon-chatgpt" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          fill="#fff"
+          fill-rule="evenodd"
+          d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523c2.854 0 4.662 2.212 4.662 4.566c0 .167 0 .357-.024.547l-4.71-2.759a.8.8 0 0 0-.856 0zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473l1.95-1.118a.43.43 0 0 1 .476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948c0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142a.45.45 0 0 1-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472c1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.48 4.48 0 0 1 4.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449l-1.95 1.118a.43.43 0 0 1-.476 0m-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519c0-.19.024-.38.047-.57l4.686 2.71a.79.79 0 0 0 .856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523m5.899 2.83a5.95 5.95 0 0 0 5.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448c.119-.5.19-.999.19-1.498c0-3.401-2.759-5.947-5.946-5.947a5.7 5.7 0 0 0-1.88.31A5.96 5.96 0 0 0 10.205 0a5.95 5.95 0 0 0-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.282 1.998 4.448c-.119.5-.19 1-.19 1.499c0 3.401 2.759 5.946 5.946 5.946c.642 0 1.26-.095 1.88-.309a5.96 5.96 0 0 0 4.162 1.713z"
+        />
+      </symbol>
+      <symbol id="icon-claude" viewBox="0 0 16 16">
+        <path d="M0 0h16v16H0z" fill="none" />
+        <path
+          fill="#fff"
+          d="m3.127 10.604l3.135-1.76l.053-.153l-.053-.085H6.11l-.525-.032l-1.791-.048l-1.554-.065l-1.505-.08l-.38-.081L0 7.832l.036-.234l.32-.214l.455.04l1.009.069l1.513.105l1.097.064l1.626.17h.259l.036-.105l-.089-.065l-.068-.064l-1.566-1.062l-1.695-1.121l-.887-.646l-.48-.327l-.243-.306l-.104-.67l.435-.48l.585.04l.15.04l.593.456l1.267.981l1.654 1.218l.242.202l.097-.068l.012-.049l-.109-.181l-.9-1.626l-.96-1.655l-.428-.686l-.113-.411a2 2 0 0 1-.068-.484l.496-.674L4.446 0l.662.089l.279.242l.411.94l.666 1.48l1.033 2.014l.302.597l.162.553l.06.17h.105v-.097l.085-1.134l.157-1.392l.154-1.792l.052-.504l.25-.605l.497-.327l.387.186l.319.456l-.045.294l-.19 1.23l-.37 1.93l-.243 1.29h.142l.161-.16l.654-.868l1.097-1.372l.484-.545l.565-.601l.363-.287h.686l.505.751l-.226.775l-.707.895l-.585.759l-.839 1.13l-.524.904l.048.072l.125-.012l1.897-.403l1.024-.186l1.223-.21l.553.258l.06.263l-.218.536l-1.307.323l-1.533.307l-2.284.54l-.028.02l.032.04l1.029.098l.44.024h1.077l2.005.15l.525.346l.315.424l-.053.323l-.807.411l-3.631-.863l-.872-.218h-.12v.073l.726.71l1.331 1.202l1.667 1.55l.084.383l-.214.302l-.226-.032l-1.464-1.101l-.565-.497l-1.28-1.077h-.084v.113l.295.432l1.557 2.34l.08.718l-.112.234l-.404.141l-.444-.08l-.911-1.28l-.94-1.44l-.759-1.291l-.093.053l-.448 4.821l-.21.246l-.484.186l-.403-.307l-.214-.496l.214-.98l.258-1.28l.21-1.016l.19-1.263l.112-.42l-.008-.028l-.092.012l-.953 1.307l-1.448 1.957l-1.146 1.227l-.274.109l-.477-.247l.045-.44l.266-.39l1.586-2.018l.956-1.25l.617-.723l-.004-.105h-.036l-4.212 2.736l-.75.096l-.324-.302l.04-.496l.154-.162l1.267-.871z"
+        />
+      </symbol>
+      <symbol id="icon-deepseek" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          fill="#fff"
+          d="M21.79 5.88c-.21-.1-.3.09-.43.2c-.04.03-.08.08-.11.11c-.31.33-.67.55-1.14.52c-.69-.04-1.28.18-1.8.71c-.11-.65-.48-1.04-1.04-1.29c-.29-.13-.59-.26-.8-.54c-.14-.2-.18-.42-.25-.64c-.05-.13-.09-.27-.24-.29c-.17-.03-.23.11-.3.23c-.26.48-.36 1-.35 1.53c.02 1.2.53 2.15 1.53 2.83c.11.08.14.16.11.27c-.07.23-.15.46-.22.69c-.05.15-.11.18-.27.12a4.8 4.8 0 0 1-1.45-.98c-.71-.69-1.36-1.45-2.16-2.05q-.285-.21-.57-.39c-.82-.8.11-1.45.32-1.53c.23-.08.08-.36-.65-.36s-1.39.25-2.24.57a2 2 0 0 1-.39.11a7.7 7.7 0 0 0-2.4-.08c-1.57.17-2.82.92-3.75 2.19c-1.11 1.52-1.37 3.25-1.05 5.06c.34 1.9 1.31 3.48 2.8 4.71c1.55 1.28 3.33 1.9 5.36 1.78c1.23-.07 2.61-.24 4.16-1.55c.39.2.8.27 1.48.33c.53.05 1.03-.03 1.42-.11c.61-.13.57-.7.35-.8c-1.8-.84-1.4-.5-1.76-.77c.91-1.08 2.29-2.2 2.83-5.84c.04-.29 0-.47 0-.7c0-.14.03-.2.19-.21c.45-.05.89-.18 1.29-.4c1.16-.64 1.63-1.68 1.74-2.93c.02-.19 0-.39-.21-.49ZM11.65 17.15c-1.74-1.37-2.58-1.82-2.93-1.8c-.33.02-.27.39-.2.64c.08.24.17.41.31.62c.1.14.16.35-.09.5c-.56.35-1.53-.12-1.58-.14c-1.13-.67-2.08-1.55-2.75-2.76c-.64-1.16-1.02-2.41-1.08-3.73c-.02-.32.08-.43.4-.49c.42-.08.85-.09 1.27-.03c1.78.26 3.29 1.05 4.56 2.31c.72.72 1.27 1.57 1.83 2.41c.6.89 1.24 1.73 2.07 2.43c.29.24.52.43.74.56c-.67.07-1.78.09-2.54-.51Zm.83-5.37c0-.14.11-.26.25-.26c.03 0 .06 0 .09.02c.1.04.17.13.17.24c0 .14-.11.26-.25.26s-.25-.11-.25-.25Zm2.59 1.33c-.17.07-.33.13-.49.13c-.24 0-.47-.07-.66-.21c-.23-.19-.39-.3-.46-.63c-.02-.16-.02-.33.01-.49c.06-.27 0-.45-.2-.61c-.16-.13-.35-.17-.57-.17c-.07 0-.15-.03-.21-.07c-.11-.05-.15-.17-.1-.28v-.02c.02-.04.13-.15.16-.17c.3-.17.64-.11.95.01c.29.12.52.34.83.65c.33.38.39.48.57.76c.15.22.28.45.37.71c.06.16-.02.29-.21.38Z"
+          class="b"
+        />
+      </symbol>
+      <symbol id="icon-gemini" viewBox="0 0 16 16">
+        <path d="M0 0h16v16H0z" fill="none" />
+        <path
+          fill="#fff"
+          d="M7.987 0c.167 0 .313.114.354.277q.188.747.492 1.453a10.3 10.3 0 0 0 2.18 3.231a10.26 10.26 0 0 0 4.684 2.672a.365.365 0 0 1 0 .708q-.747.188-1.454.492a10.3 10.3 0 0 0-3.23 2.18a10.26 10.26 0 0 0-2.672 4.684a.365.365 0 0 1-.708 0a10.25 10.25 0 0 0-2.672-4.684A10.26 10.26 0 0 0 .277 8.34a.366.366 0 0 1 0-.708q.747-.188 1.453-.492a10.3 10.3 0 0 0 3.231-2.18A10.25 10.25 0 0 0 7.633.277A.366.366 0 0 1 7.987 0"
+        />
+      </symbol>
+      <symbol id="icon-google-ai-studio" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <g fill="#fff" fill-rule="evenodd">
+          <path
+            d="M9.921 4.196H6.328A2.705 2.705 0 0 0 3.623 6.9v11.362a2.705 2.705 0 0 0 2.705 2.705h11.363a2.705 2.705 0 0 0 2.705-2.705v-4.756l1.623-1.113v5.87a4.33 4.33 0 0 1-4.328 4.328H6.328A4.33 4.33 0 0 1 2 18.263V6.901a4.33 4.33 0 0 1 4.328-4.329h4.545z"
+          />
+          <path
+            d="M17.82 0c.145 0 .268.104.299.246a7 7 0 0 0 1.9 3.484a7 7 0 0 0 3.485 1.901a.31.31 0 0 1 .246.3a.31.31 0 0 1-.246.298A7 7 0 0 0 20.02 8.13a7 7 0 0 0-1.912 3.535a.3.3 0 0 1-.288.238a.3.3 0 0 1-.288-.238A7 7 0 0 0 15.62 8.13a7 7 0 0 0-3.535-1.912a.3.3 0 0 1-.238-.288c0-.14.1-.26.238-.288A7 7 0 0 0 15.62 3.73A7 7 0 0 0 17.521.246A.31.31 0 0 1 17.82 0"
+          />
+        </g>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 12 12">
+        <path d="M0 0h12v12H0z" fill="none" />
+        <path
+          fill="currentColor"
+          d="M5 8H4V7H3v1H1v1H0v2h1v1h2v-1h1V9h1Zm0 0h3V7h1V4H8V3H5v1H4v3h1ZM2 7h1V3H2Zm3 3h4V9H5ZM3 3h1V2H3Zm6 6h1V8H9Zm-5-7h5V1H4Zm6 6h1V3h-1ZM9 3h1V2H9Zm0 0"
+        />
+      </symbol>
+    </svg>
+
+    <!-- Main Dashboard -->
+    <main class="box" aria-label="Pixel Tab dashboard">
+      <!-- Top -->
+      <header class="top">
+        <h1 class="time">
+          <time id="clock-time" datetime=""></time
+          ><span id="clock-period" class="am_pm"></span>
+        </h1>
+        <p class="date-weather">
+          <time id="current-date" datetime=""></time
+          ><span aria-hidden="true">|</span
+          ><span id="weather-info" aria-live="polite">Weather unavailable</span>
+          <!-- == COMMENTED OUT BUT MIGHT NEED IN THE FUTURE == <a
+            class="weather-attribution"
+            href="https://open-meteo.com/"
+            aria-label="Weather data by Open-Meteo"
+            >Open-Meteo</a
+          > -->
+        </p>
+        <p class="greet"><span class="greet-1">Afternoon</span> Jini!</p>
+      </header>
+
+      <hr class="divider" />
+
+      <!-- Bottom -->
+      <section class="bottom" aria-label="Search and shortcuts">
+        <form
+          class="search"
+          action="https://www.google.com/search"
+          method="get"
+          role="search"
+        >
+          <label class="visually-hidden" for="google-search"
+            >Search Google</label
+          >
+          <input id="google-search" type="search" name="q" autocomplete="off" />
+          <button type="submit" aria-label="Search">
+            <svg aria-hidden="true"><use href="#icon-search"></use></svg>
+          </button>
+        </form>
+
+        <nav class="shortcut-grid" aria-label="Apps and websites">
+          <a class="shortcut" href="https://fmhy.net/">
+            <span class="shortcut-art"
+              ><svg aria-hidden="true"><use href="#icon-fmhy"></use></svg
+            ></span>
+            <span class="shortcut-label">FMHY</span>
+          </a>
+          <a class="shortcut" href="https://olfu.instructure.com/">
+            <span class="shortcut-art"
+              ><svg aria-hidden="true"><use href="#icon-canvas"></use></svg
+            ></span>
+            <span class="shortcut-label">Canvas</span>
+          </a>
+          <a class="shortcut" href="https://www.facebook.com/">
+            <span class="shortcut-art"
+              ><svg aria-hidden="true"><use href="#icon-facebook"></use></svg
+            ></span>
+            <span class="shortcut-label">FB</span>
+          </a>
+          <a class="shortcut" href="https://twitter.com/">
+            <span class="shortcut-art"
+              ><svg aria-hidden="true"><use href="#icon-twitter"></use></svg
+            ></span>
+            <span class="shortcut-label">Twitter</span>
+          </a>
+
+          <!-- Site folder -->
+          <div class="folder-wrapper folder-wrapper--ai">
+            <input
+              class="folder-toggle"
+              type="checkbox"
+              id="ai-folder-toggle"
+              aria-label="AI folder"
+              aria-controls="ai-folder-panel"
+            />
+            <label class="shortcut folder-trigger" for="ai-folder-toggle">
+              <span class="folder-preview" aria-hidden="true">
+                <svg><use href="#icon-chatgpt"></use></svg>
+                <svg><use href="#icon-claude"></use></svg>
+                <svg><use href="#icon-deepseek"></use></svg>
+                <svg><use href="#icon-gemini"></use></svg>
+              </span>
+              <span class="shortcut-label">AI</span>
+            </label>
+
+            <section
+              class="folder-panel"
+              id="ai-folder-panel"
+              aria-labelledby="ai-folder-title"
+            >
+              <header class="folder-panel-header">
+                <h2 id="ai-folder-title">AI</h2>
+                <label class="folder-close" for="ai-folder-toggle">Close</label>
+              </header>
+              <nav class="folder-grid" aria-label="AI applications">
+                <a class="folder-app" href="https://chatgpt.com/">
+                  <span class="folder-app-art"
+                    ><svg aria-hidden="true">
+                      <use href="#icon-chatgpt"></use></svg
+                  ></span>
+                  <span class="folder-app-label">ChatGPT</span>
+                </a>
+                <a class="folder-app" href="https://claude.ai/">
+                  <span class="folder-app-art"
+                    ><svg aria-hidden="true">
+                      <use href="#icon-claude"></use></svg
+                  ></span>
+                  <span class="folder-app-label">Claude</span>
+                </a>
+                <a class="folder-app" href="https://chat.deepseek.com/">
+                  <span class="folder-app-art"
+                    ><svg aria-hidden="true">
+                      <use href="#icon-deepseek"></use></svg
+                  ></span>
+                  <span class="folder-app-label">DeepSeek</span>
+                </a>
+                <a class="folder-app" href="https://gemini.google.com/">
+                  <span class="folder-app-art"
+                    ><svg aria-hidden="true">
+                      <use href="#icon-gemini"></use></svg
+                  ></span>
+                  <span class="folder-app-label">Gemini</span>
+                </a>
+                <a class="folder-app" href="https://aistudio.google.com/">
+                  <span class="folder-app-art"
+                    ><svg aria-hidden="true">
+                      <use href="#icon-google-ai-studio"></use></svg
+                  ></span>
+                  <span class="folder-app-label">Google AI Studio</span>
+                </a>
+              </nav>
+            </section>
+          </div>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
