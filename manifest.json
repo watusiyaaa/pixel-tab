@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Pixel Tab",
-  "version": "1.0",
-  "description": "Custom new tab page for myself.",
+  "version": "1.0.0",
+  "description": "Pixel Tab: Simple Chrome New Tab Extension. Intended for personal use",
   "permissions": ["geolocation"],
   "host_permissions": ["https://api.open-meteo.com/*"],
   "icons": {

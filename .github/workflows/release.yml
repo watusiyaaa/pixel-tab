@@ -1,0 +1,49 @@
+name: Releases
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Read manifest version
+        id: version
+        run: echo "value=$(jq -r '.version' manifest.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Create production ZIP
+        id: package
+        env:
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          set -euo pipefail
+          package_dir="$(mktemp -d)"
+          zip_name="pixel-tab-ver_${VERSION}.zip"
+
+          cp manifest.json "$package_dir/"
+          find . -maxdepth 1 -type f \( -name '*.js' -o -name '*.html' -o -name '*.css' -o -name '*.ttf' \) -exec cp {} "$package_dir/" \;
+          for directory in css icons _locales; do
+            if [ -d "$directory" ]; then
+              cp -R "$directory" "$package_dir/"
+            fi
+          done
+
+          (cd "$package_dir" && zip -qr "$GITHUB_WORKSPACE/$zip_name" .)
+          echo "file=$zip_name" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Pixel Tab ${{ steps.version.outputs.value }}
+          files: ${{ steps.package.outputs.file }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
