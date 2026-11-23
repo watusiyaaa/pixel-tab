@@ -231,7 +231,7 @@ footer {
 }
 
 .search {
-  width: min(100%, 410px);
+  width: min(100%, 800px);
   height: 66px;
   margin: 0 auto 2.25rem;
   display: flex;

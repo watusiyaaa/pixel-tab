@@ -2,7 +2,7 @@
 
 A custom Chrome new-tab extension with a live clock, dynamic date, weather, time-of-day greeting, and app/website shortcuts — including an expandable AI folder.
 
-**Version:** 1.0  
+**Current Version:** 1.0.1  
 **Manifest:** V3  
 **Type:** Chrome new-tab override (`chrome_url_overrides`)
 
@@ -19,6 +19,36 @@ A custom Chrome new-tab extension with a live clock, dynamic date, weather, time
 | Shortcuts           | FMHY, Canvas, FB, Twitter, plus an expandable AI folder                   |
 | AI folder           | ChatGPT, Claude, DeepSeek, Gemini, Google AI Studio — opens from its tile |
 | Same-tab navigation | All links and search load in the current tab                              |
+
+---
+
+## Get Pixel Tab
+
+### 1. Download
+
+Pixel Tab is distributed as a source-code ZIP file:
+
+1. Open the repository's **Releases** page.
+2. Download the latest ZIP archive, such as `Pixel-Tab-v1.0.zip`.
+3. Extract the archive to a permanent folder on your computer.
+
+### 2. Install in Chrome or Brave
+
+1. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
+2. Turn on **Developer mode**.
+3. Select **Load unpacked**.
+4. Choose the extracted `Pixel-Tab` folder.
+5. Open a new tab.
+
+The extension replaces the new-tab page through `chrome_url_overrides` in `manifest.json`.
+
+### 3. Update
+
+To update an unpacked installation:
+
+1. Download and extract the latest release.
+2. Replace the existing project folder, or extract the new release over it.
+3. Open the extensions page and click the reload control for **Pixel Tab**.
 
 ---
 
@@ -43,31 +73,6 @@ Pixel-Tab/
 └── docs/
     └── script-js.md       # Detailed documentation for script.js
 ```
-
----
-
-## Installation (unpacked extension)
-
-1. Open Chrome and go to `chrome://extensions`.
-2. Enable **Developer mode** (toggle in the top-right).
-3. Click **Load unpacked** and select the `Pixel-Tab` folder.
-4. Open a new tab — Pixel Tab should replace the default new-tab page.
-
-> The extension overrides Chrome's new tab page via `chrome_url_overrides` in `manifest.json`.
-
----
-
-## Release / Download
-
-Pixel Tab is distributed as a **source-code zip file**.
-
-1. Head to the **Releases** section of this repository.
-2. Download the latest source zip (e.g. `Pixel-Tab-v1.0.zip`).
-3. Unzip the archive.
-4. Open Chrome and go to `chrome://extensions` (brave://extensions for brave).
-5. Enable **Developer mode** (toggle in the top-right).
-6. Click **Load unpacked** and select the unzipped `Pixel-Tab` folder.
-7. Open a new tab — Pixel Tab should replace the default new-tab page.
 
 ---
 
