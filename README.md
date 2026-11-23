@@ -2,7 +2,7 @@
 
 A custom Chrome new-tab extension with a live clock, dynamic date, weather, time-of-day greeting, and app/website shortcuts — including an expandable app folder.
 
-**Current Version:** 1.0.1
+**Current Version:** 1.0.1  
 **Manifest:** V3  
 **Type:** Chrome new-tab override (`chrome_url_overrides`)
 
