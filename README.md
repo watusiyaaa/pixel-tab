@@ -1,8 +1,8 @@
 # Pixel Tab
 
-A custom Chrome new-tab extension with a live clock, dynamic date, weather, time-of-day greeting, and app/website shortcuts — including an expandable AI folder.
+A custom Chrome new-tab extension with a live clock, dynamic date, weather, time-of-day greeting, and app/website shortcuts — including an expandable app folder.
 
-**Version:** 1.0  
+**Current Version:** 1.0.1
 **Manifest:** V3  
 **Type:** Chrome new-tab override (`chrome_url_overrides`)
 
@@ -16,9 +16,37 @@ A custom Chrome new-tab extension with a live clock, dynamic date, weather, time
 | Dynamic date        | `Month Day, Year, Weekday`, rolls over at midnight                        |
 | Live weather        | Current condition + temperature (°C) via Open-Meteo                       |
 | Greeting            | Morning / Afternoon / Evening / Night, color-coded by time of day         |
-| Shortcuts           | FMHY, Canvas, FB, Twitter, plus an expandable AI folder                   |
-| AI folder           | ChatGPT, Claude, DeepSeek, Gemini, Google AI Studio — opens from its tile |
+| Shortcuts           | FMHY, Canvas, FB, Twitter, plus an expandable app folder                  |
+| App folder          | Full app folder, in this case contains AI sites.                          |
 | Same-tab navigation | All links and search load in the current tab                              |
+
+---
+
+## Get Pixel Tab
+
+### 1. Download:
+
+1. Open the repository's **Releases** page.
+2. Download the latest ZIP archive `pixel-tab-ver_1.0.1.zip`.
+3. Extract the archive to a permanent folder on your computer.
+
+### 2. Install in Chrome or Brave
+
+1. Open `chrome://extensions` in Chrome or `brave://extensions` in Brave.
+2. Turn on **Developer mode**.
+3. Select **Load unpacked**.
+4. Choose the extracted `Pixel-Tab` folder.
+5. Open a new tab.
+
+The extension replaces the new-tab page through `chrome_url_overrides` in `manifest.json`.
+
+### 3. Update
+
+To update an unpacked installation:
+
+1. Download and extract the latest release.
+2. Replace the existing project folder, or extract the new release over it.
+3. Open the extensions page and click the reload control for **Pixel Tab**.
 
 ---
 
@@ -31,43 +59,16 @@ Pixel-Tab/
 ├── index.html             # New-tab page markup
 ├── style.css              # Stylesheet (pixel font, dashboard, folder panel)
 ├── script.js              # Clock, date, greeting, weather, navigation logic
-├── notes.txt              # Inline SVG icon source (referenced during build)
 ├── Pixel12x10.ttf         # Pixel font used across the dashboard
-├── favicon.ico            # Page favicon
+├── LICENSE                # MIT license
 ├── icons/
-│   ├── favicon.ico        # Multi-size favicon source
+│   ├── favicon.ico        # Page favicon
 │   └── extension/
 │       ├── icon-16.png    # Extension icon (16×16)
 │       ├── icon-48.png    # Extension icon (48×48)
 │       └── icon-128.png   # Extension icon (128×128)
-└── docs/
-    └── script-js.md       # Detailed documentation for script.js
+└── README.md              # Project documentation
 ```
-
----
-
-## Installation (unpacked extension)
-
-1. Open Chrome and go to `chrome://extensions`.
-2. Enable **Developer mode** (toggle in the top-right).
-3. Click **Load unpacked** and select the `Pixel-Tab` folder.
-4. Open a new tab — Pixel Tab should replace the default new-tab page.
-
-> The extension overrides Chrome's new tab page via `chrome_url_overrides` in `manifest.json`.
-
----
-
-## Release / Download
-
-Pixel Tab is distributed as a **source-code zip file**.
-
-1. Head to the **Releases** section of this repository.
-2. Download the latest source zip (e.g. `Pixel-Tab-v1.0.zip`).
-3. Unzip the archive.
-4. Open Chrome and go to `chrome://extensions` (brave://extensions for brave).
-5. Enable **Developer mode** (toggle in the top-right).
-6. Click **Load unpacked** and select the unzipped `Pixel-Tab` folder.
-7. Open a new tab — Pixel Tab should replace the default new-tab page.
 
 ---
 
@@ -99,7 +100,7 @@ const WEATHER_CONFIG = {
 | `geolocation`                                    | Read device location for local weather |
 | `host_permissions: https://api.open-meteo.com/*` | Call the Open-Meteo weather API        |
 
-Chrome shows a **"Detect your physical location"** warning when the extension is installed because of the `geolocation` permission.
+The `geolocation` permission lets the new-tab page request your location for weather. Chrome does not show the **"Detect your physical location"** warning for this new-tab extension, but the permission remains available to the page. Weather also works because the extension is allowed to call the Open-Meteo API through its host permission.
 
 Open-Meteo is free for non-commercial use (< 10,000 calls/day, 5,000/hour, 600/minute) under CC-BY 4.0. Attribution is required — see `index.html` for the commented-out attribution link.
 
@@ -115,11 +116,6 @@ No build step or dependencies are required. Edit the files directly and reload t
 | `index.html`    | Dashboard HTML (clock, date, weather, search, shortcuts, folder) |
 | `style.css`     | Responsive layout, pixel font, folder panel animation            |
 | `script.js`     | Live clock, date, greeting, weather, same-tab navigation         |
-| `notes.txt`     | Source SVG icons used in the dashboard                           |
-
-### Detailed script documentation
-
-See [`docs/script-js.md`](docs/script-js.md) for a full breakdown of `script.js` (clock, date, greeting, weather, navigation, error handling, and limitations).
 
 ---
 
@@ -132,26 +128,7 @@ See [`docs/script-js.md`](docs/script-js.md) for a full breakdown of `script.js`
 
 ## License
 
-MIT License
-
-Copyright (c) 2026 Jobelle Sandigan
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file
+for the complete license text.
 
 Weather data provided by [Open-Meteo](https://open-meteo.com/) under CC-BY 4.0.
