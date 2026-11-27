@@ -51,7 +51,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ inputs.tag_name || github.ref_name }}
-          name: Pixel Tab ${{ steps.version.outputs.value }}
+          name: ver-${{ steps.version.outputs.value }}
           files: ${{ steps.package.outputs.file }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

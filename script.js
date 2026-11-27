@@ -69,6 +69,8 @@
   let greetingTimerId;
   let lastWeatherAttemptAt = 0;
   let weatherRequest = null;
+  let cachedLocation = null;
+  let geolocationPermissionDenied = false;
 
   function getPart(formatter, date, type) {
     return formatter.formatToParts(date).find((part) => part.type === type)
@@ -195,16 +197,39 @@
   }
 
   function getCurrentLocation() {
+    if (cachedLocation) {
+      return Promise.resolve({
+        location: cachedLocation,
+        permissionDenied: false,
+      });
+    }
+
+    if (geolocationPermissionDenied) {
+      return Promise.resolve({ location: null, permissionDenied: true });
+    }
+
     return new Promise((resolve) => {
       if (!navigator.geolocation) {
-        resolve(null);
+        resolve({ location: null, permissionDenied: false });
         return;
       }
 
       try {
         navigator.geolocation.getCurrentPosition(
-          ({ coords }) => resolve(validateLocation(coords)),
-          () => resolve(null),
+          ({ coords }) => {
+            const location = validateLocation(coords);
+            if (location) {
+              cachedLocation = location;
+            }
+            resolve({ location, permissionDenied: false });
+          },
+          (error) => {
+            const permissionDenied = error?.code === 1;
+            if (permissionDenied) {
+              geolocationPermissionDenied = true;
+            }
+            resolve({ location: null, permissionDenied });
+          },
           {
             enableHighAccuracy: false,
             maximumAge: 10 * 60 * 1000,
@@ -212,26 +237,34 @@
           },
         );
       } catch {
-        resolve(null);
+        resolve({ location: null, permissionDenied: false });
       }
     });
   }
 
   async function getWeatherLocation() {
-    const currentLocation = await getCurrentLocation();
-    return currentLocation || validateLocation(WEATHER_CONFIG.fallbackLocation);
+    const result = await getCurrentLocation();
+    const location =
+      result.location || validateLocation(WEATHER_CONFIG.fallbackLocation);
+
+    return {
+      location,
+      unavailableMessage: result.permissionDenied
+        ? "Location unavailable"
+        : "Set a location",
+    };
   }
 
-  function showWeatherUnavailable() {
-    weatherInfo.textContent = "Weather unavailable";
-    weatherInfo.setAttribute("aria-label", "Weather unavailable");
+  function setWeatherStatus(message) {
+    weatherInfo.textContent = message;
+    weatherInfo.setAttribute("aria-label", message);
   }
 
   async function requestWeather() {
     try {
-      const location = await getWeatherLocation();
+      const { location, unavailableMessage } = await getWeatherLocation();
       if (!location) {
-        showWeatherUnavailable();
+        setWeatherStatus(unavailableMessage);
         return;
       }
 
@@ -260,24 +293,30 @@
       }
 
       const data = await response.json();
-      const temperature = Number(data?.current?.temperature_2m);
-      const code = Number(data?.current?.weather_code);
+      const temperature = data?.current?.temperature_2m;
+      const code = data?.current?.weather_code;
       const description = WEATHER_DESCRIPTIONS[code];
 
-      if (!Number.isFinite(temperature) || !description) {
+      if (
+        typeof temperature !== "number" ||
+        !Number.isFinite(temperature) ||
+        typeof code !== "number" ||
+        !Number.isInteger(code) ||
+        !description
+      ) {
         throw new Error(
           "Open-Meteo response is missing valid current conditions.",
         );
       }
 
-      const summary = `${description} ${Math.round(temperature)}°C`;
+      const summary = `${Math.round(temperature)}°C · ${description}`;
       weatherInfo.textContent = summary;
       weatherInfo.setAttribute(
         "aria-label",
         location.name ? `${summary} in ${location.name}` : summary,
       );
     } catch (error) {
-      showWeatherUnavailable();
+      setWeatherStatus("Weather unavailable");
       console.warn("Unable to update Pixel Tab weather.", error);
     }
   }
